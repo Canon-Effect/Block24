@@ -1,14 +1,18 @@
 
 
-// A react Component is A javascript functiomn that returns JSX
-import Counter from "./Counter";
-import {myName, PI} from "./MyNameandPi";
+import React, { useState } from "react";
+import { puppyList } from "./data";
 
+const App = () => {
+  const [puppies, setPuppies] = useState(puppyList);
 
-// what is JSX? -> ember 'HTML/JSX' in Javascript
-
-const App = ()=> {
-  return <hl>Hello {myName} PI is: {PI} 1 + 1 = {1 + 1}</hl>;
+  return (
+    <div>
+      {puppies.map((puppy) => {
+        return <p key={puppy.id}>{puppy.name}</p>;
+      })}
+    </div>
+  );
 };
 
-export default App
+export default App;
